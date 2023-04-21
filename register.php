@@ -53,7 +53,9 @@ $r->set('user:username:'.$username.':userid',$userid);
 
 
 
-
+//通过一个链接，维护50个最新的userid
+$r->lpush('newuserlink',$userid);
+$r->ltrim('newuserlink',0,49);
 
 
 

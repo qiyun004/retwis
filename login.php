@@ -41,6 +41,12 @@ if($password !== $realpass){
 }
 
 //设置cookie，登录成功
+
+//生成随机数放到cookie和redis中，防止cookie被篡改
+$authsecret = randsecret();
+$r->set('user:userid:'.$userid.':authsecret',$authsecret);
+setcookie('authsecret',$authsecret);
+
 setcookie('username',$username);
 setcookie('userid',$userid);
 

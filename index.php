@@ -1,4 +1,13 @@
-<?php include('./header.php');?>
+<?php
+
+include('./header.php');
+include('./lib.php');
+if( isLogin() != false){
+	header('Location:home.php');
+	exit;
+}
+
+?>
 <div id="navbar">
 <a href="index.php">主页</a>
 | <a href="timeline.php">热点</a>
